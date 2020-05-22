@@ -6,3 +6,17 @@
 # import AFD
 # import string
 # prueba
+import AFD
+import ProcesamientoCadenaAFD
+a = AFD.AFD("fileAFD.txt")
+
+# b = ProcesamientoCadenaAFD.ProcesamientoCadenaAFD()
+
+
+
+
+
+
+
+
+

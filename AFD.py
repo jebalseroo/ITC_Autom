@@ -1,8 +1,9 @@
+import string
 class AFD:
     """Clase para automata AFD.
 
     """
-
+    # delclaracion de variables
     alphabet = ""
     states = ""
     initial = ""
@@ -30,25 +31,34 @@ class AFD:
         self.fich = open(nombreArchivo, "r")
         allFich = self.fich.read()
         splitFich = allFich.split("#")
-        self.alphabet = splitFich[1].split("\n")[1:-1]
+        alph = splitFich[1].split("\n")[1:-1]
+        self.alphabet = self.lineaALineaAlphabet(alph)
         self.states = splitFich[2].split("\n")[1:-1]
         self.initial = splitFich[3].split("\n")[1:-1]
         self.accepting = splitFich[4].split("\n")[1:-1]
         self.transitions = splitFich[5].split("\n")[1:]
 
-
-
     @classmethod
+    def lineaALineaAlphabet(self, alph):
+        print(alph)
+        listaAlph = []
+        for x in alph:
+            pUCaracter = x.split("-")
+            if(len(pUCaracter) == 1):
+                listaAlph.append(pUCaracter[0])
+                continue
+            for i in range(ord(pUCaracter[0]), ord(pUCaracter[1])+1):
+                listaAlph.append(chr(i))
+        print(sorted(listaAlph))
+        return listaAlph
+
+
     def procesarCadena(self, cadena): #boolean
         """Booleano procesarCadena(cadena):
             procesa la cadena y retorna verdadero si es aceptada y falso si es rechazada por el autómata.
 
         """
         print("procesarCadena: ")
-        if():
-            return True
-        else:
-            return False
 
     def procesarCadenaConDetalles(self, cadena): #boolean
         """Booleano procesarCadenaConDetalles(cadena):
@@ -68,3 +78,10 @@ class AFD:
         """
         print("procesarListaCadena: ")
         pass
+
+a = AFD("fileAFD.txt")
+# print(a.alphabet)
+# print(a.states)
+# print(a.initial)
+# print(a.accepting)
+# print(a.transitions)

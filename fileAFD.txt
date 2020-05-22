@@ -1,5 +1,6 @@
 #alphabet
 a-c
+1-5
 #states
 s0
 s1
@@ -12,12 +13,8 @@ s0
 s1
 s3
 #transitions
-s0:b>s1
-s0:$>s0,s1
-s1:a>s0
-s1:b>s2,s3
-s1:$>s2,s3
-s2:a>s2,s3
-s2:$>s2
-s3:c>s1
-s3:$>s1,s2
+q0:a>q1
+q0:b>q4
+q1:b>q2
+q2:a>q3
+q3:b>q3
